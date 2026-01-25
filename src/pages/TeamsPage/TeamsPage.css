@@ -1,0 +1,399 @@
+/* 1. Typography & Imports */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --primary-glow: #ff5e5e;     /* The bright neon red */
+  --secondary-glow: #8a1c1c;   /* The darker deep red */
+  --bg-dark: #050202;          /* Almost black */
+  --text-main: #ffffff;
+  --text-muted: #cccccc;
+  --border-color: rgba(255, 94, 94, 0.4);
+}
+
+/* 2. Global Page Layout */
+
+
+
+
+.TeamsPage {
+  background-color: var(--bg-dark);
+  min-height: 100vh;
+  color: var(--text-main);
+  font-family: 'Lato', sans-serif;
+  padding-bottom: 4rem;
+  overflow-x: hidden;
+  margin-top: 60px;
+}
+
+.TeamsPage-sectionIcon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255, 94, 94, 0.6));
+}
+
+
+.TeamsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 3. Hero Section */
+.TeamsHero {
+  text-align: center;
+  padding: 40px 20px 60px;
+  position: relative;
+}
+
+.breadcrumb {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.TeamsTitle {
+  font-family: 'Cinzel', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px rgba(255, 94, 94, 0.5); /* The glow effect */
+}
+
+.TeamsSubtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  display: inline-block;
+}
+
+/* The decorative glowing line below subtitle */
+.TeamsHero::after {
+  content: "";
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
+  margin: 30px auto 0;
+  opacity: 0.7;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* 4. Section Headers (The Modern "Tech" Bar) */
+.TeamsPage-section {
+  margin-bottom: 60px;
+}
+
+.TeamsPage-sectionHeader {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  /* min-width: 300px; */
+  padding: 10px 20px;
+  margin-bottom: 30px;
+  position: relative;
+  /* The Tech Border Shape */
+  border: 1px solid var(--border-color);
+  background: linear-gradient(90deg, rgba(40, 0, 0, 0.6) 0%, rgba(0,0,0,0) 100%);
+  box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.1);
+  
+  /* Chamfered edge effect using clip-path could go here, 
+     but a border-radius is safer for the double-border look */
+  border-radius: 4px 20px 4px 20px; 
+}
+
+/* The glowing line extending to the right of the header */
+.TeamsPage-sectionHeader::after {
+  content: "";
+  position: absolute;
+  right: -100px; /* Extends out */
+  bottom: 0;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--primary-glow), transparent);
+  opacity: 0.5;
+}
+
+.TeamsPage-sectionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  padding-right: 15px;
+  border-right: 1px solid var(--border-color);
+}
+
+.TeamsPage-sectionIcon svg path,
+.TeamsPage-sectionIcon svg circle {
+  stroke: var(--primary-glow); /* Force the SVG to match theme */
+}
+
+.TeamsPage-sectionTitle {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  color: #fff;
+  margin: 0;
+  font-weight: 400;
+  text-transform: capitalize;
+  text-shadow: 0 0 5px rgba(255, 94, 94, 0.4);
+}
+
+/* 5. Card Grid Layout */
+.TeamsPage-grid {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, 220px);
+  gap: 15px;
+  justify-content: start;
+}
+
+/* 6. Card Design (Cinematic Portrait) */
+.team-card {
+  position: relative;
+  background: rgba(10, 5, 5, 0.5);
+  border: 3px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* The "Tech" cut corners at the bottom */
+  clip-path: polygon(
+    0 0, 
+    100% 0, 
+    100% 90%, 
+    90% 100%, 
+    10% 100%, 
+    0 90%
+  );
+  width: 200px;
+  height: 300px;
+}
+
+.team-card:hover {
+  /* transform: translateY(-5px); */
+  border-color: rgb(207, 26, 26);
+}
+
+.card-media {
+  width: 100%;
+  aspect-ratio: 3 / 4; /* Ensures portrait sizing like the image */
+  overflow: hidden;
+  position: relative;
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Zoom effect on hover */
+.team-card:hover .card-media img {
+  transform: scale(1.15);
+}
+
+/* Dark gradient overlay so text pops */
+.card-media::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.card-body {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0 10px;
+  z-index: 2;
+}
+
+.card-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+/* 7. Social Icons */
+.card-socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.card-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.card-socials a:hover {
+  background: var(--primary-glow);
+  color: #000;
+  border-color: var(--primary-glow);
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* Responsive Adjustments */
+
+@media (max-width: 460px) {
+  .TeamsTitle {
+    font-size: 3rem;
+  }
+  .TeamsSubtitle{
+    font-size: 1rem;
+  }
+  .TeamsPage-sectionTitle{
+    font-size: 1.3rem;
+  }
+  .TeamsPage-grid{
+    justify-content: center;
+  }
+  
+    .team-card{
+        width: 175px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 410px) {
+  .TeamsTitle {
+    font-size: 2.75rem;
+  }
+  .TeamsSubtitle{
+    font-size: 0.85rem;
+  }
+  .TeamsPage-sectionTitle{
+    font-size: 1.1rem;
+  }
+  
+    .team-card{
+        width: 150px;
+        height: 210px;
+    }
+    .card-name{
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 360px) {
+  .TeamsTitle {
+    font-size: 2.5rem;
+  }
+  .TeamsSubtitle{
+    font-size: 0.75rem;
+  }
+  .TeamsPage-sectionTitle{
+    font-size: 0.8rem;
+  }
+  .TeamsPage-sectionHeader{
+    padding: 9px 13px;
+  }
+  
+  
+    .team-card{
+        width: 130px;
+        height: 190px;
+    }
+    .card-name{
+        font-size: 0.75rem;
+    }
+  
+    .card-socials a{
+        width: 20px;
+        height: 20px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 316px) {
+  .TeamsTitle {
+    font-size: 2.2rem;
+  }
+  .TeamsSubtitle{
+    font-size: 0.7rem;
+  }
+  .TeamsPage-sectionTitle{
+    font-size: 0.7rem;
+  }
+  
+  
+    .team-card{
+        width: 118px;
+        height: 170px;
+    }
+    .card-name{
+        font-size: 0.7rem;
+    }
+    
+    .TeamsPage-sectionHeader{
+        padding: 8px 11px;
+    }
+    .card-socials a{
+        width: 18px;
+        height: 18px;
+        font-size: 0.7rem;
+    }
+}
+
+
+@media (max-width: 290px) {
+  .TeamsTitle {
+    font-size: 2.2rem;
+  }
+  .TeamsSubtitle{
+    font-size: 0.7rem;
+  }
+  .TeamsPage-sectionTitle{
+    font-size: 0.65rem;
+  }
+  
+  
+    .team-card{
+        width: 110px;
+        height: 160px;
+    }
+    .card-name{
+        font-size: 0.6rem;
+    }
+  
+    .card-socials a{
+        width: 16px;
+        height: 16px;
+        font-size: 0.6rem;
+    }
+    .TeamsPage-sectionHeader{
+        width: 65%;
+        padding: 7px 11px;
+    }
+}
+

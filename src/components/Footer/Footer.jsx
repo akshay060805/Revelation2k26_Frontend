@@ -12,7 +12,7 @@ const Footer = () => {
     });
   };
 
-  const links = [{name:"HOME",to:"/"},{name:"EVENTS",to:"/events"},{name:"SPONSORS",to:"/#sponsors-section"},{name:"TEAM",to:"/teams"}];
+  const links = [{name:"HOME",to:"/"},{name:"EVENTS",to:"/events"},{name:"SPONSORS",to:"/#sponsors-section"},{name:"TEAM",to:"/teams"},{name:"GALLERY",to:"/gallery"}];
 
   return (
     <footer className="bg-black text-gray-300 py-6 px-4 w-full mt-100px">
