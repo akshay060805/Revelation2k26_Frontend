@@ -171,7 +171,7 @@ const EventList = () => {
                                     <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
 
                                     <img
-                                        src={event.img || "vite.svg"}
+                                        src={event.posterImage.url || "vite.svg"}
                                         alt={event.name}
                                         className="absolute inset-0 w-full h-full object-cover transition duration-700 md:group-hover:scale-110"
                                     />
