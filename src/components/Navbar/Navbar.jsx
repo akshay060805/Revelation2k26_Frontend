@@ -11,6 +11,7 @@ import homeIcon from "../../assets/icons/home.png";
 import eventsIcon from "../../assets/icons/calendar.png";
 import sponsorsIcon from "../../assets/icons/sponsor.png";
 import teamsIcon from "../../assets/icons/teams.png";
+import galleryIcon from "../../assets/icons/gallery.png";
 
 const Navbar = ({ Token }) => {
   const [hovered, setHovered] = useState(null);
@@ -174,6 +175,7 @@ const Navbar = ({ Token }) => {
             { id: "/events", icon: eventsIcon, label: "Events" },
             { id: "/sponsors", icon: sponsorsIcon, label: "Sponsors" },
             { id: "/teams", icon: teamsIcon, label: "Teams" },
+            { id: "/gallery", icon: galleryIcon, label: "Gallery" },
           ].map(({ id, icon, label }) => (
             <button
               key={id}
@@ -282,6 +284,7 @@ const Navbar = ({ Token }) => {
             { id: "/events", icon: eventsIcon, label: "Events" },
             { id: "/sponsors", icon: sponsorsIcon, label: "Sponsors" },
             { id: "/teams", icon: teamsIcon, label: "Teams" },
+            { id: "/gallery", icon: galleryIcon, label: "Gallery" },
           ].map(({ id, icon, label }) => (
             <button
               key={id}
