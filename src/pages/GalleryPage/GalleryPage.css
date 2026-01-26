@@ -137,12 +137,13 @@
    Gallery Year Section Title
    ========================= */
 .gallery-section {
+  scroll-margin-top: 140px;
   margin-bottom: 80px; /* space between year sections */
 }
 
 .gallery-section-title {
   text-align: center;                 /* ✅ center */
-  margin: 30px auto 20px;             /* spacing top & bottom */
+  margin: 70px auto 20px;             /* spacing top & bottom */
   font-family: "Macondo", cursive;
   font-size: 56px;
   font-weight: 400;
@@ -176,6 +177,101 @@
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
 }
 
+.year {
+  background-color: #d92727;
+  margin: 10px;
+  border-radius: 8px;
+  width: 80px;
+  height: 38px;
+
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+
+.year:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 18px rgba(255, 0, 0, 0.9);
+}
+
+
+.year.active {
+  background-color: #ffffff;
+  color: #d92727;
+
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 0.9),
+    0 0 25px rgba(255, 0, 0, 0.8);
+
+  transform: scale(1.12);
+}
+/* =========================
+   Sticky Year Navigation
+   ========================= */
+/* .year-nav {
+ 
+ top: var(--navbar-height);
+  z-index: 3;
+
+  display: flex;
+  justify-content: center;
+   position: fixed;
+  padding: 14px 0;
+  margin-top: 16px;
+
+  /* subtle glass effect */
+  /* background: rgba(16, 0, 0, 0.85); */
+  /* backdrop-filter: blur(6px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  transition: background 0.3s ease, box-shadow 0.3s ease; */
+/* }  */
+.year-nav {
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  width: 100%;
+  margin-top: 30px;
+ 
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+
+  padding: 14px 0;
+
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.25s ease;
+}
+
+/* visible */
+.year-nav.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* hidden */
+.year-nav.hide {
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+.btns{
+  display: flex;
+  flex-direction: row;
+  
+}
 
 /* =========================
    Responsive rules
@@ -232,5 +328,24 @@
   .gallery-section-title {
     font-size: 26px;
     letter-spacing: 1px;
+   
   }
 }
+@media (max-width: 510px) {
+  .year-nav {
+    padding: 10px 0;
+  }
+
+  .btns {
+    max-width: 90%;       
+    gap: 8px;
+  }
+
+  .year {
+    width: 64px;           
+    height: 32px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+}
+
