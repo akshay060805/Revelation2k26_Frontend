@@ -6,6 +6,28 @@ import "./GalleryPage.css";
 function GalleryPage({ Token, setToken }) {
   const canvasRef = useRef(null);
   const [gallerySections, setGallerySections] = useState([]); // [{ folder: '2k25', images: [url, ...] }, ...]
+  const [activeYear, setActiveYear] = useState(null);
+const [showYearNav, setShowYearNav] = useState(true);
+const lastScrollY = useRef(0);
+
+useEffect(() => {
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY.current && currentScrollY > 120) {
+      // scrolling DOWN
+      setShowYearNav(false);
+    } else {
+      // scrolling UP
+      setShowYearNav(true);
+    }
+
+    lastScrollY.current = currentScrollY;
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   // -------------------------
   // Dynamic import (Vite)
@@ -164,6 +186,18 @@ function GalleryPage({ Token, setToken }) {
       if (rafId) cancelAnimationFrame(rafId);
     };
   }, []);
+ const scrollToYear = (year) => {
+  const el = document.getElementById(`year-${year}`);
+  if (el) {
+    setActiveYear(year); 
+    el.scrollIntoView({
+      behavior: "smooth",
+      // block: "start",
+    });
+  }
+};
+
+
 
   // -------------------------
   // Render
@@ -174,12 +208,40 @@ function GalleryPage({ Token, setToken }) {
 
       {/* Canvas as background layer */}
       <canvas className="GalleryBgCanvas" ref={canvasRef} />
+   <div className={`year-nav ${showYearNav ? "show" : "hide"}`}>
+    <div className="btns">
+      <button
+        className={`year ${activeYear === "2k25" ? "active" : ""}`}
+        onClick={() => scrollToYear("2k25")}
+      >
+        2025
+      </button>
 
-      {/* <header className="GalleryHeader">
-        <h1 id="macondo-regular" className="pop">
+      <button
+        className={`year ${activeYear === "2k24" ? "active" : ""}`}
+        onClick={() => scrollToYear("2k24")}
+      >
+        2024
+      </button>
+
+      {/* <button
+        className={`year ${activeYear === "2023" ? "active" : ""}`}
+        onClick={() => scrollToYear("2023")}
+      >
+        2023
+      </button> */}
+    </div>
+  </div>
+      <header className="GalleryHeader">
+        
+        {/* <h1 id="macondo-regular" className="pop">
           Gallery
-        </h1>
-      </header> */}
+        </h1> */}
+ 
+
+
+      </header>
+    
 
       <main className="GalleryMain">
         {gallerySections.length === 0 ? (
@@ -187,13 +249,16 @@ function GalleryPage({ Token, setToken }) {
             No gallery images found. Make sure your images are placed in <code>src/assets/gallery/&lt;folder&gt;/</code>
           </div>
         ) : (
+          
           gallerySections.map((section) => (
-            <section className="gallery-section" key={section.folder}>
+            <section className="gallery-section" key={section.folder}  id={`year-${section.folder}`}>
               <h2 className="gallery-section-title">revelation-{section.folder}</h2>
 
               <div className="gallery">
                 {section.images.map((src, idx) => (
-                  <div className="photo" key={`${section.folder}-${idx}`}>
+                  <div className="photo"
+                  // id={`year-${section.folder}`}
+                   key={`${section.folder}-${idx}`}>
                     <img src={src} alt={`revelation-${section.folder}-${idx + 1}`} loading="eager" decoding="async" />
                   </div>
                 ))}
