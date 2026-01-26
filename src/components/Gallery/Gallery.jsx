@@ -1,6 +1,7 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 // Import images
 import img1 from "../../assets/img1.jpg";
@@ -73,19 +74,13 @@ const Gallery = () => {
       </section>
 
       {/* Visit Gallery Button */}
-      <div className="mt-16 flex justify-center gallery-button">
-        <Link
-          to="/gallery"
-          className="px-8 py-3 text-lg font-semibold tracking-wide rounded-xl
-                     border-2 border-red-600 text-white
-                     bg-gradient-to-br from-[#1a0505] to-[#0b0000]
-                     shadow-[0_0_20px_rgba(255,0,0,0.35)]
-                     hover:shadow-[0_0_35px_rgba(255,0,0,0.6)]
-                     hover:scale-105 transition-all duration-300 gallery-button-link"
-        >
-          Visit Gallery
-        </Link>
-      </div>
+      <button
+        onClick={() => (window.location.href = "/gallery")}
+        className="mt-10 relative w-[clamp(160px,18vw,200px)] h-[clamp(35px,7vh,50px)] border-2 border-[#d01515] text-white font-['Kode_Mono',monospace] font-bold text-[clamp(14px,1.8vw,18px)] overflow-hidden transition-colors duration-300 hover:bg-[#d01515] hover:border-white"
+      >
+        <span className="relative z-10">VISIT GALLERY</span>
+        <AiOutlineArrowRight className="absolute top-1/2 right-2 transform -translate-y-1/2 w-[clamp(18px,1.8vw,25px)] h-[clamp(12px,1.5vw,18px)] text-white" />
+      </button>
     </div>
   );
 };
