@@ -54,9 +54,9 @@ const EventList = () => {
     return (
 
         <div className="overflow-hidden events-bg relative w-full min-h-screen text-white flex flex-col items-center pb-20 font-goldman">
-            <div className="absolute inset-0 bg-black/75 backdrop-blur-[2px] z-0"></div>
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-[2px] z-0"></div>
             {/* 2. HEADER SECTION */}
-            <div className="EventHero text-center mt-[60px] mb-16 z-10 px-4 pt-10">
+            <div className="EventHero text-center mt-[60px] mb-16 z-10 px-4 pt-10 md:!pt-20">
                 <h1 className="text-[#EE0000] text-[50px] md:text-[90px] font-title font-black tracking-tighter leading-none mt-2">
                     EVENTS
                 </h1>
