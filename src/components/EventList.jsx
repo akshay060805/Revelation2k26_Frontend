@@ -11,200 +11,7 @@ const EventList = () => {
     // 1. Start with a default (e.g., true for Desktop layout, or false for Mobile)
     // DO NOT put window.innerWidth here.
     const [isDesktop, setIsDesktop] = React.useState(true);
-    // const [events, setEvents] = useState([]);
-
-    const events = [
-        {
-            _id: "696f98192e1caeabab869ec9",
-
-            name: "zinzo",
-            description: "online game",
-            type: "Single",
-            venue: "Hom",
-
-            day: 1,
-
-            startTime: "2026-02-06T13:00:00.000Z",
-            endTime: "2026-02-08T12:59:00.000Z",
-
-            prizePool: 50000,
-            registrationAmount: 500,
-            registrationFrom: "website",
-            registrationLink: null,
-            isRegistrationOpen: true,
-
-            teamSize: {
-                min: 1,
-                max: 1
-            },
-
-            rules: [
-                "You should have phone",
-                "You should be human"
-            ],
-
-            backgroundImage: {
-                url: "https://res.cloudinary.com/dgioskvki/image/upload/v1768921110/revelation2k26/events/ks6tcp3tftiihy1xvjqe.png",
-                filename: "revelation2k26/events/ks6tcp3tftiihy1xvjqe",
-                _id: "696f98192e1caeabab869ecb"
-            },
-
-            posterImage: {
-                url: "https://res.cloudinary.com/dgioskvki/image/upload/v1768921110/revelation2k26/events/u5u4eyncttgle8udulry.png",
-                filename: "revelation2k26/events/u5u4eyncttgle8udulry",
-                _id: "696f98192e1caeabab869eca"
-            },
-
-            eventGif: {
-                url: "https://res.cloudinary.com/dgioskvki/image/upload/v1768921112/revelation2k26/events/l3gmiy311xiqck8nszxj.gif",
-                filename: "revelation2k26/events/l3gmiy311xiqck8nszxj",
-                _id: "696f98192e1caeabab869ecc"
-            }
-        },
-
-        {
-            _id: "696f9b977c64fc56120d600e",
-
-            name: "codestorm",
-            description: "Hi",
-            type: "Team",
-            venue: "NB",
-
-            day: 2,
-
-            startTime: "2026-02-07T09:42:00.000Z",
-            endTime: "2026-02-08T09:42:00.000Z",
-
-            prizePool: 12000,
-            registrationAmount: 120,
-            registrationFrom: "website",
-            registrationLink: null,
-            isRegistrationOpen: true,
-
-            teamSize: {
-                min: 3,
-                max: 5
-            },
-
-            rules: [
-                "Bye"
-            ],
-
-            backgroundImage: {
-                url: "https://res.cloudinary.com/dgioskvki/image/upload/v1768922004/revelation2k26/events/f7blkxhoelwdp7eopni6.png",
-                filename: "revelation2k26/events/f7blkxhoelwdp7eopni6",
-                _id: "696f9b977c64fc56120d6010"
-            },
-
-            posterImage: {
-                url: "https://res.cloudinary.com/dgioskvki/image/upload/v1768922005/revelation2k26/events/wn9xuqaysapcjupeygud.png",
-                filename: "revelation2k26/events/wn9xuqaysapcjupeygud",
-                _id: "696f9b977c64fc56120d600f"
-            },
-
-            eventGif: {
-                url: "https://res.cloudinary.com/dgioskvki/image/upload/v1768922006/revelation2k26/events/cqcvkrsgzpjjlbj08mh0.gif",
-                filename: "revelation2k26/events/cqcvkrsgzpjjlbj08mh0",
-                _id: "696f9b977c64fc56120d6011"
-            }
-        },
-
-        {
-            _id: "696f98192e1caeabab869ec9",
-
-            name: "zinzo",
-            description: "online game",
-            type: "Single",
-            venue: "Hom",
-
-            day: 1,
-
-            startTime: "2026-02-06T13:00:00.000Z",
-            endTime: "2026-02-08T12:59:00.000Z",
-
-            prizePool: 50000,
-            registrationAmount: 500,
-            registrationFrom: "website",
-            registrationLink: null,
-            isRegistrationOpen: true,
-
-            teamSize: {
-                min: 1,
-                max: 1
-            },
-
-            rules: [
-                "You should have phone",
-                "You should be human"
-            ],
-
-            backgroundImage: {
-                url: "https://res.cloudinary.com/dgioskvki/image/upload/v1768921110/revelation2k26/events/ks6tcp3tftiihy1xvjqe.png",
-                filename: "revelation2k26/events/ks6tcp3tftiihy1xvjqe",
-                _id: "696f98192e1caeabab869ecb"
-            },
-
-            posterImage: {
-                url: "https://res.cloudinary.com/dgioskvki/image/upload/v1768921110/revelation2k26/events/u5u4eyncttgle8udulry.png",
-                filename: "revelation2k26/events/u5u4eyncttgle8udulry",
-                _id: "696f98192e1caeabab869eca"
-            },
-
-            eventGif: {
-                url: "https://res.cloudinary.com/dgioskvki/image/upload/v1768921112/revelation2k26/events/l3gmiy311xiqck8nszxj.gif",
-                filename: "revelation2k26/events/l3gmiy311xiqck8nszxj",
-                _id: "696f98192e1caeabab869ecc"
-            }
-        },
-
-        {
-            _id: "696f9b977c64fc56120d600e",
-
-            name: "codestorm",
-            description: "Hi",
-            type: "Team",
-            venue: "NB",
-
-            day: 2,
-
-            startTime: "2026-02-07T09:42:00.000Z",
-            endTime: "2026-02-08T09:42:00.000Z",
-
-            prizePool: 12000,
-            registrationAmount: 120,
-            registrationFrom: "website",
-            registrationLink: null,
-            isRegistrationOpen: true,
-
-            teamSize: {
-                min: 3,
-                max: 5
-            },
-
-            rules: [
-                "Bye"
-            ],
-
-            backgroundImage: {
-                url: "https://res.cloudinary.com/dgioskvki/image/upload/v1768922004/revelation2k26/events/f7blkxhoelwdp7eopni6.png",
-                filename: "revelation2k26/events/f7blkxhoelwdp7eopni6",
-                _id: "696f9b977c64fc56120d6010"
-            },
-
-            posterImage: {
-                url: "https://res.cloudinary.com/dgioskvki/image/upload/v1768922005/revelation2k26/events/wn9xuqaysapcjupeygud.png",
-                filename: "revelation2k26/events/wn9xuqaysapcjupeygud",
-                _id: "696f9b977c64fc56120d600f"
-            },
-
-            eventGif: {
-                url: "https://res.cloudinary.com/dgioskvki/image/upload/v1768922006/revelation2k26/events/cqcvkrsgzpjjlbj08mh0.gif",
-                filename: "revelation2k26/events/cqcvkrsgzpjjlbj08mh0",
-                _id: "696f9b977c64fc56120d6011"
-            }
-        }
-    ];
-
+    const [events, setEvents] = useState([]);
 
     const fetchEvents = async () => {
         try {
@@ -216,10 +23,10 @@ const EventList = () => {
         }
     }
 
-    // useEffect(() => {
-    //     fetchEvents();
-    // }, []);
-    // console.log(events);
+    useEffect(() => {
+        fetchEvents();
+    }, []);
+    console.log(events);
 
     const formatDate = (event) => {
         const date = new Date(event.startTime);
@@ -248,19 +55,6 @@ const EventList = () => {
 
         <div className="overflow-hidden events-bg relative w-full min-h-screen text-white flex flex-col items-center pb-20 font-goldman">
             <div className="absolute inset-0 bg-black/75 backdrop-blur-[2px] z-0"></div>
-            
-            {/* <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20 z-0"></div> */}
-
-
-        {/* CHANGED FROM 'fixed' TO 'absolute' to save your Footer */}
-            {/* <div className="absolute inset-0 z-0 h-full w-full">
-            <img
-                src="backgroundpunith.png"   
-                alt="Background"
-                className="w-full h-full object-cover "
-            />
-            <div className="absolute inset-0 bg-black/80"></div>
-        </div> */}
             {/* 2. HEADER SECTION */}
             <div className="EventHero text-center mt-[60px] mb-16 z-10 px-4 pt-10">
                 <h1 className="text-[#EE0000] text-[50px] md:text-[90px] font-title font-black tracking-tighter leading-none mt-2">
