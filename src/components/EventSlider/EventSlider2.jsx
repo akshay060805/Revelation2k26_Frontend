@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import event1 from "../../assets/Event_img/BrainDead.webp";
 import event2 from "../../assets/Event_img/HackQuest.webp";
-// import event3 from "../../assets/Event_img/Ludo.webp";
+import event3 from "../../assets/Event_img/Chess.webp";
 import event4 from "../../assets/Event_img/codeStorm.webp";
-// import event5 from "../../assets/Event_img/Fifa.webp";
+import event5 from "../../assets/Event_img/TrailIt.webp";
 import event6 from "../../assets/Event_img/Ganitam.webp";
 import event7 from "../../assets/Event_img/MurderMystery.webp";
 import event8 from "../../assets/Event_img/RootAccess.webp";
@@ -16,15 +16,15 @@ import "./EventSlider2.css";
 const events = [
   { id: 1, image: event1, title: "Brain Dead" },
   { id: 2, image: event2, title: "HackQuest" },
-  { id: 3, image: event11, title: "BloodDonation" },
+  { id: 3, image: event3, title: "Chess" },
   { id: 4, image: event4, title: "Code Storm" },
-  { id: 5, image: event1, title: "Brain Dead" },
+  { id: 5, image: event5, title: "Trail It" },
   { id: 6, image: event6, title: "Ganitam" },
   { id: 7, image: event7, title: "Murder Mystery" },
   { id: 8, image: event8, title: "Root Access" },
   { id: 9, image: event9, title: "Techno Quiz" },
   { id: 10, image: event4, title: "Code Storm" },
-  { id: 11, image: event11, title: "BloodDonation" },
+  { id: 11, image: event8, title: "Root Access" },
   { id: 12, image: event6, title: "Ganitam" }
 ];
 
