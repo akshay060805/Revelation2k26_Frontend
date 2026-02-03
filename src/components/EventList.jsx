@@ -108,11 +108,23 @@ const EventList = () => {
                                         Details
                                     </button>
                                 </Link>
-                                <Link to={`/event/${event._id}`}>
-                                    <button className="px-3 py-1 md:px-6 md:py-3 rounded-full border border-red-500 text-white text-md md:text-xl md:font-bold tracking-widest hover:bg-red-600 shadow-[0_0_30px_rgba(220,38,38,0.45)] ">
-                                        Register
-                                    </button>
-                                </Link>
+                                {event.registrationFrom === "website" ?
+                                    <Link to={`/dashboard/${event._id}`}>
+                                        <button className="px-3 py-1 md:px-6 md:py-3 rounded-full border border-red-500 text-white text-md md:text-xl md:font-bold tracking-widest hover:bg-red-600 shadow-[0_0_30px_rgba(220,38,38,0.45)] ">
+                                            Register
+                                        </button>
+                                    </Link> : event.registrationFrom === "notReq" ?
+                                        <Link>
+                                            <button className="px-3 py-1 md:px-6 md:py-3 rounded-full border border-red-500 text-white text-md md:text-xl md:font-bold tracking-widest hover:bg-red-600 shadow-[0_0_30px_rgba(220,38,38,0.45)] ">
+                                                Upcoming
+                                            </button>
+                                        </Link> :
+                                        <Link to={event.registrationLink}>
+                                            <button className="px-3 py-1 md:px-6 md:py-3 rounded-full border border-red-500 text-white text-md md:text-xl md:font-bold tracking-widest hover:bg-red-600 shadow-[0_0_30px_rgba(220,38,38,0.45)] ">
+                                                Register
+                                            </button>
+                                        </Link>
+                                }
                             </div>
                             <div className=" w-full md:w-[42%] order-2 md:order-none  flex flex-col justify-center items-center text-center px-3 md:px-5 pt-0 pb-2 md:p-8 space-y-2">
                                 <h2 className="cinematic-title text-3xl md:text-4xl lg:text-5xl">
@@ -133,7 +145,7 @@ const EventList = () => {
 
                                         <img src="clock-regular-full.svg"
                                             alt="Time"
-                                            className="event-icon w-8 h-8 object-contain invert" /> {new Date(event.startTime).toLocaleTimeString('en-GB', {hour: '2-digit',minute: '2-digit', hour12: false})}
+                                            className="event-icon w-8 h-8 object-contain invert" /> {new Date(event.startTime).toLocaleString('en-GB', { timeZone: 'UTC', hour: '2-digit', minute: '2-digit', hour12: false, })}
                                     </div>
                                     <div className="flex items-center gap-1 md:gap-3 text-sm md:text-lg font-semibold uppercase tracking-wide">
 
@@ -150,7 +162,7 @@ const EventList = () => {
                                             className="event-icon text-white-400"
                                             fontSize="medium"
                                         />
-                                        {event.prizePool+"/-" || "20000/-"}
+                                        {event.prizePool + "/-" || "20000/-"}
                                     </div>
 
                                 </div>
