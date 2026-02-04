@@ -30,8 +30,9 @@ const EventList = () => {
 
     const formatDate = (event) => {
         const date = new Date(event.startTime);
-
-        const formatted = date.toLocaleDateString('en-IN', {
+        // new Date(event.startTime).toLocaleString('en-GB', { timeZone: 'UTC', hour: '2-digit', minute: '2-digit', hour12: false, })
+        const formatted = date.toLocaleString('en-GB', {
+            timeZone: 'UTC',
             day: '2-digit',
             month: 'short',
             // year: 'numeric'
